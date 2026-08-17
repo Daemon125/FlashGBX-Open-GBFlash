@@ -35,6 +35,9 @@ class GbxDevice(LK_Device):
 			for i in range(0, len(comports)):
 				if comports[i].vid == 0x1A86 and comports[i].pid == 0x7523:
 					ports.append(comports[i].device)
+				# Placeholder VID/PID for testing
+				elif comports[i].vid == 0x1209 and comports[i].pid == 0x0001:
+					ports.append(comports[i].device)
 			if len(ports) == 0: return False
 
 		for i in range(0, len(ports)):
@@ -356,6 +359,9 @@ class FirmwareUpdater():
 			comports = serial.tools.list_ports.comports()
 			for i in range(0, len(comports)):
 				if comports[i].vid == 0x1A86 and comports[i].pid == 0x7523:
+					ports.append(comports[i].device)
+				# Placeholder VID/PID for testing
+				elif comports[i].vid == 0x1209 and comports[i].pid == 0x0001:
 					ports.append(comports[i].device)
 			if len(ports) == 0:
 				fncSetStatus(__("No device found."))
